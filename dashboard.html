@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد تحیللی دیتای سنسور های شرکت اسمیران در ماه مرداد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* تنظیمات سفارشی برای ایجاد تم شبیه به تصویر */
+        body {
+            background-color: rgb(12, 7, 33); /* پس‌زمینه تیره اصلی */
+            color: #f0efe2; /* رنگ متن روشن */
+            direction: rtl;
+        }
+        
+        
+        .dashboard-card {
+            background-color: #3C485A; /* رنگ پس‌زمینه کارت‌ها */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            width: 500 px;
+            height: 500 px ;
+        }
+        /* کلاس برای شبیه‌سازی نمودار دایره‌ای - از SVG واقعی استفاده نشده */
+        
+        
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Gradient Border شبیه به تصویر */
+            background-image: linear-gradient(#3C485A, #3C485A),
+                              radial-gradient(circle at 50% 50%, #22D3EE, #16BCE3);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            border: 6px solid transparent; /* اندازه Stroke */
+
+        }
+
+
+
+        .h3_1{ 
+            text-justify: newspaper;
+            color: rgb(219, 219, 7);
+            justify-self: center;
+        }
+
+
+        .h3_12{ 
+            text-justify: newspaper;
+            color: rgb(251, 251, 251);
+            justify-self: center;
+        }
+
+
+        .sticky-header thead th {
+            top: 0;
+            position: sticky;
+            z-index: 10; /* مطمئن می‌شویم بالای محتوای جدول قرار می‌گیرد */
+        }
+
+        
+
+
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <header class="flex flex-col md:flex-row justify-between  md:items-center mb-8">
+        <h1  style="text-align:center;"   class="text-3xl font-extrabold text-white uppercase tracking-wider mb-4 md:mb-0">
+            داشبورد تحلیلی دیتای سنسورهای شرکت اسمیران در ماه مرداد
+        </h1>
+    </header>
+
+
+<!-- line1 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-1 my-5">
+
+            <div class="dashboard-card min-h-[700px] min-w-[700px] flex flex-col"> 
+                    <h2 class="text-xl font-semibold mb-4 text-white self-center"> ماتریکس همبستگی دیتای مرداد </h2>
+                    
+                    <div class="flex-grow w-full justify-between "> 
+                        
+                        <iframe 
+                            
+                            src="interactive_correlation_heatmap.html" 
+                            frameborder="0" 
+                            width="750px" 
+                            height="750px"
+                            allowfullscreen
+                            class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
+                        ></iframe>
+                    </div>
+            </div>
+
+    <div class="grid grid-cols-1 gap-6 mb-10 mx-auto my-10">
+
+
+        <div class="dashboard-card flex items-center justify-between p-6 h-32 m-15px">
+            <div class="flex items-center text-sm text-gray-400 font-semibold">
+                <span class="mr-4 uppercase m-6 text-2xl ">ENTER START DATE</span>
+                <span class="bg-[#4a5568] p-1 rounded px-3 text-white text-2xl"> ۶ مرداد ۱۴۰۳  </span>
+                <span class="mx-3 uppercase text-2xl">THROUGH</span>
+                <span class="bg-[#4a5568] p-1 rounded px-3 text-white text-2xl">    ۳۱ مرداد ۱۴۰۳ </span>
+            </div>
+
+
+        </div>
+    
+        <div class="dashboard-card flex items-center justify-between p-6 h-32">
+        
+            <div class="text-right"> 
+                <p class="text-xl font-semibold text-white mb-1">تعداد سنسور های خاموش در این ماه </p>
+                <p class="text-sm font-light text-gray-400">آخرین به‌روزرسانی: ۰۱ آبان</p>
+            </div>
+
+            <div class="flex flex-shrink-0 items-center">
+                <div class="score-circle">
+                    <span class="text-3xl font-extrabold text-white">۳۳</span>
+                </div>
+                <p class="text-sm font-semibold text-gray-400 mr-4"></p>
+            </div>
+        </div>
+
+        <div class="dashboard-card flex items-center justify-between p-6 h-32">
+            <div class="text-right"> 
+                <p class="text-xl font-semibold text-white mb-1">کل رکورد های ثبت شده در این ماه </p>
+                <p class="text-sm font-light text-gray-400">۲۵ روز در ماه مرداد</p>
+            </div>
+            <div class="flex flex-shrink-0 items-center">
+                <div class="score-circle">
+                    <span class="text-30px p-5px font-extrabold text-white">1،619،155</span>
+                </div>
+                <p class="text-sm font-semibold text-gray-400 mr-4"></p>
+            </div>
+        </div>
+        
+        <div class="dashboard-card flex items-center justify-between p-6 h-32">
+            <div class="text-right"> 
+                <p class="text-xl font-semibold text-white mb-1">تعداد فیچر های این ماه </p>
+                <!-- <p class="text-sm font-light text-gray-400">بر اساس دوره شش ماهه</p> -->
+            </div>
+            <div class="flex flex-shrink-0 items-center">
+                <div class="score-circle">
+                    <span class="text-3xl font-extrabold text-white">499</span>
+                </div>
+                <p class="text-sm font-semibold text-gray-400 mr-4"></p>
+            </div>
+        </div>
+        
+        
+    
+    </div>
+
+       
+</div>
+
+
+<!-- line 2 -->
+
+<br/>
+<br/>
+
+<div>
+
+
+    <div class="dashboard-card" >
+        <h3 class="h3_1" style="text-align: center;  font-size: xx-large;">سنسور های خاموش</h3>
+        <br/>
+        <p  style="font-family: monospace; line-height: 1.5; direction: ltr; text-align: center;">
+            f7, f26, f30, f43, f47, f72, f76, f80, f84, f88, f94, f98, f99, f102, f106, f114, f119, f123, f141, f166, f177, f181, f185, f191, f195, f199, f203, f229, f342, f343, f344, f345, f349
+        </p>
+    
+    </div>
+
+
+</div>
+
+
+
+<!-- line -->
+
+<br/>
+
+<div>
+
+
+    <div class="dashboard-card bg-transparent" >
+        <h3 class="h3_12" style="text-align: center;  font-size: xx-large;">روز هایی که  در سنسور ها ناهنجاری شدید وجود دارد</h3>
+        <br/>
+
+    
+    </div>
+
+
+        <div class="grid grid-cols-2 gap-6 mb-10 mx-auto my-10">
+            <div class="flex-grow w-full justify-between "> 
+                        
+                        <iframe 
+                            
+                            src="daily_anomaly_bar_chart_shamsi.html" 
+                            frameborder="0" 
+                            width="750px" 
+                            height="750px"
+                            allowfullscreen
+                            class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
+                        ></iframe>
+            </div>
+
+
+            <div class="flex-grow w-full justify-between "> 
+                        
+                        <iframe 
+                            
+                            src="anomaly_distribution_pie_chart.html" 
+                            frameborder="0" 
+                            width="750px" 
+                            height="750px"
+                            allowfullscreen
+                            class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
+                        ></iframe>
+            </div>
+
+
+
+
+        </div>   
+
+
+
+
+
+        
+
+
+
+</div>
+
+
+
+
+<div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-extrabold mb-6 text-gray-900 dark:text-white border-b border-indigo-500 pb-2">
+            گزارش کامل ویژگی‌های کورتوزیس بالا (۱۰۰+ سطر)
+        </h1>
+
+        <h1 class="text-l font-extrabold mb-6 text-gray-900 dark:text-white   pb-2">
+           در این ویژگی ها هر چه  مقدار عدد بیشتر باشد نشان دهنده این است که مقادیر پرت شدید نسبت میانگین و استاندارد آن سنسور وجود دارد
+        </h1>
+
+
+
+        <div class="shadow-2xl overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
+            <div class="overflow-x-auto max-h-[80vh] sticky-header"> 
+                
+                <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-600">
+                    
+                    <thead class="bg-indigo-600 dark:bg-indigo-800">
+                        <tr>
+                            <th data-column="feature" class="cursor-pointer px-6 py-3 text-right text-xs font-semibold text-white uppercase tracking-wider hover:bg-indigo-700 transition">
+                                ویژگی (Feature) 
+                            </th>
+                            <th data-column="kurtosis" class="cursor-pointer px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider hover:bg-indigo-700 transition">
+                                کورتوزیس (Kurtosis) 
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="kurtosis-table-body" class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+
+</body>
+</html>
+
+
+<script>
+    // ----------------------------------------------------
+    // ۱. داده‌های خام CSV (تمام داده‌های شما)
+    // ----------------------------------------------------
+    const csvData = `Feature,kurtosis
+f0,3.8059057465585466
+f1,3.4844479714072856
+f3,4.452568844739567
+f4,4.543187492655304
+f5,4.572523901493168
+f8,6.495114265510367
+f9,6.411394473190869
+f10,6.544179474328432
+f11,6.097320767056663
+f12,5.875966539284198
+f13,5.7913942643738
+f15,3.9193216061016516
+f18,4.241203428939751
+f19,3.628040931899034
+f20,4.945813463360841
+f22,29.177830988403016
+f23,6.238501399390492
+f24,7.749385912938697
+f27,46541.57644408297
+f28,57031.09539806726
+f33,411.6272987195216
+f36,411.86584580356515
+f37,5.081161018935125
+f38,8.098274120933173
+f39,11.802077063493687
+f40,7.121789421176988
+f41,8.056963352877966
+f44,4.356154228060957
+f45,4.354836007861739
+f48,6.612990341868105
+f49,6.486848852709361
+f50,6.706815147472884
+f51,6.575458026327462
+f52,6.786415584310129
+f53,6.7907244032840275
+f54,6.6484689486346245
+f55,6.554412850399688
+f60,3.0737571788443976
+f61,3.8821250431811123
+f62,4.3431499982840265
+f65,30076.662033631586
+f68,411.74653812467056
+f69,286103.3686530268
+f70,6.310153899369613
+f73,6.971409677962315
+f74,8.169982692366595
+f78,8.419303803339877
+f79,34.91588902833679
+f81,7.532395042372322
+f82,8.446487238962309
+f83,35.83613232301156
+f86,34.95891864473706
+f87,34.97848193628034
+f91,253.4154367060803
+f92,251.65085885990482
+f95,18.84740920056967
+f96,3573.985376433942
+f100,4589.494399499225
+f103,582.1404700528748
+f104,587.6529221594523
+f107,35.27380650553154
+f108,954.6680127965599
+f110,13.319931179190725
+f118,3.976132100904203
+f122,5.174497073479639
+f129,3.8544276328634695
+f130,3.4532562851209665
+f132,4.556815924690791
+f133,5.745916687442733
+f134,83.32573169160932
+f135,170.78323766097392
+f136,67.85569998085471
+f138,3.85442965217318
+f139,694276.1189634973
+f142,364016.2855597292
+f143,407.84733878744683
+f145,286464.11788848514
+f146,405.1725848161724
+f151,7.626895592295433
+f152,7.555046567924753
+f155,14.291672425575946
+f156,5.115822225156059
+f157,5.976343016352324
+f158,24.74787007394054
+f159,54.36546322410945
+f160,11.271177180484143
+f161,52.54683459795354
+f162,482819.9745295424
+f164,2718.9334537923105
+f165,407.7303199450424
+f174,7.776926100584829
+f175,49471.75400961498
+f176,49.59535859873392
+f178,728047.0000013732
+f179,503.9761206310883
+f180,15.92062662812831
+f182,8.18746707912709
+f183,7.744968077392091
+f184,15.921608878942692
+f187,4.687944540668613
+f188,613.3794030392803
+f189,534.6551794507523
+f192,440.2420191524897
+f193,289224.6998268031
+f196,112032.32074202191
+f197,47161.624500030826
+f200,422.6578526358206
+f201,519.1572122941839
+f205,1260.0905711421085
+f206,1006.9579338068876
+f208,6.512140530122807
+f209,91.99192110444135
+f214,6.982231097430589
+f218,6.086391997871976
+f220,7995.571553578133
+f222,151.94950429111958
+f228,5.692143929256616
+f360,76632.05264462747
+f361,14.17665457911669
+f362,10.981616886268503
+f363,33.7389239899844
+f364,11.275999069666588
+f365,1143.4424671240745
+f366,1710.081855487715
+f367,3119.6864003225555
+f368,3119.687013663621
+f369,1710.0818554604034
+f370,1710.0818554691043
+f371,3119.6870154135104
+f372,3119.6870154135086
+f373,3119.68701541351
+f374,3119.687015413508
+f375,3119.6870154135095
+f376,3119.6870154135104
+f377,3119.687015413509
+f450,6.557630083997513
+f451,6062.099959184905
+f452,6.5576300839961945
+f453,7.028215118212817
+f454,6.5576300840010475
+f455,6.55763008400003
+f456,7.1213711955345875
+f457,27.09931307789888
+f458,42.08296060982816
+f459,28.825785287319274
+f460,6.570465011729079
+f461,6.557630083996283
+f462,6.557818580065904`;
+
+    let dataSet; // متغیر سراسری برای نگهداری داده‌های پارس شده
+    let currentSortColumn = 'kurtosis';
+    let currentSortDirection = 'desc'; // مرتب سازی پیش‌فرض بر اساس کورتوزیس نزولی
+
+    // ----------------------------------------------------
+    // ۲. تابع پارس و تبدیل CSV
+    // ----------------------------------------------------
+    function parseCSV(csv) {
+        const lines = csv.split('\n');
+        if (lines.length === 0) return [];
+
+        // هدرها را می‌گیرد و هر گونه فضای خالی را حذف می‌کند
+        const headers = lines[0].split(',').map(header => header.trim());
+        const data = [];
+
+        // از سطر دوم (index 1) شروع به خواندن داده‌ها می‌کند
+        for (let i = 1; i < lines.length; i++) {
+            if (lines[i].trim() === '') continue; // نادیده گرفتن سطرهای خالی
+            const values = lines[i].split(',');
+            if (values.length !== headers.length) continue; // نادیده گرفتن سطرهای با ستون ناقص
+
+            const row = {};
+            for (let j = 0; j < headers.length; j++) {
+                // تبدیل مقدار کورتوزیس به عدد برای مرتب‌سازی آسان‌تر
+                row[headers[j]] = headers[j] === 'kurtosis' ? parseFloat(values[j].trim()) : values[j].trim();
+            }
+            data.push(row);
+        }
+        return data;
+    }
+
+    // ----------------------------------------------------
+    // ۳. تابع رندر جدول
+    // ----------------------------------------------------
+    function renderTable(data) {
+        const tbody = document.getElementById('kurtosis-table-body');
+        if (!tbody) return;
+
+        // ابتدا محتوای قبلی را پاک می‌کند
+        tbody.innerHTML = ''; 
+
+        // استفاده از DocumentFragment برای رندر سریع‌تر
+        const fragment = document.createDocumentFragment();
+
+        data.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            
+            // استایل‌های زوج و فرد و هاور
+            const rowClass = index % 2 === 0 
+                ? 'hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-150' 
+                : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150';
+            
+            tr.className = rowClass;
+
+            // استایل‌دهی رنگی بر اساس مقدار کورتوزیس (تشخیص Outlier)
+            let kurtosisValue = item.kurtosis;
+            let kurtosisColorClass;
+            
+            if (kurtosisValue > 1000) {
+                kurtosisColorClass = 'text-red-700 dark:text-red-400 font-extrabold'; // مقادیر بسیار بالا
+            } else if (kurtosisValue > 50) {
+                kurtosisColorClass = 'text-orange-600 dark:text-orange-400 font-semibold'; // مقادیر بالا
+            } else {
+                kurtosisColorClass = 'text-gray-600 dark:text-gray-300'; // مقادیر عادی
+            }
+
+
+            // ستون ویژگی (Feature)
+            tr.innerHTML += `
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                    ${item.Feature}
+                </td>
+            `;
+
+            // ستون کورتوزیس (Kurtosis)
+            tr.innerHTML += `
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-mono ${kurtosisColorClass}">
+                    ${kurtosisValue.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 })}
+                </td>
+            `;
+
+            fragment.appendChild(tr);
+        });
+
+        tbody.appendChild(fragment);
+    }
+    
+    // ----------------------------------------------------
+    // ۴. تابع مرتب‌سازی
+    // ----------------------------------------------------
+    function sortData(column) {
+        // اگر ستون فعلی دوباره کلیک شد، جهت مرتب‌سازی را معکوس کن
+        if (currentSortColumn === column) {
+            currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            // در غیر این صورت، ستون را عوض کن و مرتب‌سازی را صعودی (asc) کن
+            currentSortColumn = column;
+            currentSortDirection = 'asc';
+        }
+
+        // منطق مرتب‌سازی
+        dataSet.sort((a, b) => {
+            const valA = a[column];
+            const valB = b[column];
+            let comparison = 0;
+
+            if (valA > valB) {
+                comparison = 1;
+            } else if (valA < valB) {
+                comparison = -1;
+            }
+
+            // اعمال جهت مرتب‌سازی (صعودی یا نزولی)
+            return currentSortDirection === 'desc' ? comparison * -1 : comparison;
+        });
+
+        // رندر مجدد جدول با داده‌های مرتب شده
+        renderTable(dataSet);
+    }
+
+
+    // ----------------------------------------------------
+    // ۵. اجرای اولیه و شنونده‌های رویداد (Listeners)
+    // ----------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+        // ۱. پارس داده‌ها
+        dataSet = parseCSV(csvData);
+
+        // ۲. مرتب‌سازی اولیه (پیش‌فرض بر اساس کورتوزیس نزولی)
+        sortData(currentSortColumn); 
+        
+        // ۳. اضافه کردن شنونده کلیک به هدرها برای مرتب‌سازی
+        document.querySelectorAll('th[data-column]').forEach(header => {
+            header.addEventListener('click', (e) => {
+                const column = e.currentTarget.getAttribute('data-column');
+                if (column) {
+                    sortData(column);
+                }
+            });
+        });
+    });
+
+</script>
