@@ -13,14 +13,15 @@
             direction: rtl;
         }
         
+    
         
+
+
         .dashboard-card {
             background-color: #3C485A; /* رنگ پس‌زمینه کارت‌ها */
             padding: 1rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            width: 500 px;
-            height: 500 px ;
         }
         /* کلاس برای شبیه‌سازی نمودار دایره‌ای - از SVG واقعی استفاده نشده */
         
@@ -78,9 +79,9 @@
 
 
 <!-- line1 -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-1 my-5">
+<div class="grid grid-cols-2 lg:grid-cols-2 gap-6 mb-1 my-5">
 
-            <div class="dashboard-card min-h-[700px] min-w-[700px] flex flex-col"> 
+            <div class="dashboard-card  flex flex-col"> 
                     <h2 class="text-xl font-semibold mb-4 text-white self-center"> ماتریکس همبستگی دیتای مرداد </h2>
                     
                     <div class="flex-grow w-full justify-between "> 
@@ -89,7 +90,7 @@
                             
                             src="interactive_correlation_heatmap.html" 
                             frameborder="0" 
-                            width="750px" 
+                            width="100%" 
                             height="750px"
                             allowfullscreen
                             class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
@@ -204,7 +205,7 @@
                             
                             src="daily_anomaly_bar_chart_shamsi.html" 
                             frameborder="0" 
-                            width="750px" 
+                            width="100%" 
                             height="750px"
                             allowfullscreen
                             class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
@@ -218,7 +219,7 @@
                             
                             src="anomaly_distribution_pie_chart.html" 
                             frameborder="0" 
-                            width="750px" 
+                            width="100%" 
                             height="750px"
                             allowfullscreen
                             class="rounded-md bg-lab(0% 0 0 / 0) shadow-inner" 
